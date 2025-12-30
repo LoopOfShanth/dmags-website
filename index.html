@@ -73,6 +73,9 @@
     .logo-image:hover {
       transform: scale(1.05);
     }
+    .m-right {
+	    margin-right: 0.5rem;
+	  }
   </style>
 </head>
 <body class="min-h-screen bg-gradient-to-br from-slate-950 via-blue-950 to-slate-950 text-white" style="font-family:'Inter','Segoe UI',sans-serif;">
@@ -81,11 +84,11 @@
 
   <!-- Navigation -->
   <nav id="topnav" class="fixed w-full z-50 transition-all duration-500">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="flex items-center justify-between h-20">
+    <div class="flex justify-between max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center h-20">
         <div class="flex items-center gap-3 group cursor-pointer">
-          <div class="flex items-center justify-center bg-gradient-to-br from-cyan-500/20 to-blue-500/20 border border-cyan-500/30 rounded-lg p-2">
-            <img src="./logo.png" alt="DMAGS Logo" class="logo-image" onerror="this.parentElement.innerHTML='<div class=\"logo-placeholder\">D</div>'"/>
+          <div class="flex items-center justify-center bg-gradient-to-br from-cyan-500/20 to-blue-500/20 border border-cyan-500/30 rounded-lg p-2 m-right">
+            <img src="./logo.png" alt="DMAGS Logo" class="logo-image" onerror="this.onerror=null; this.outerHTML='<div class=logo-placeholder></div>';"/>
           </div>
           <div>
             <div class="text-xl font-bold text-gray-200">DMAGS</div>
@@ -439,8 +442,8 @@
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="flex flex-col md:flex-row justify-between items-center space-y-6 md:space-y-0">
         <div class="flex items-center space-x-3 group cursor-pointer">
-          <div class="flex items-center justify-center bg-gradient-to-br from-cyan-500/20 to-blue-500/20 border border-cyan-500/30 rounded-lg p-2">
-            <img src="./logo.png" alt="DMAGS Logo" class="logo-image" onerror="this.parentElement.innerHTML='<div class=\"logo-placeholder\">D</div>'"/>
+          <div class="flex items-center justify-center bg-gradient-to-br from-cyan-500/20 to-blue-500/20 border border-cyan-500/30 rounded-lg p-2 m-right">
+            <img src="./logo.png" alt="DMAGS Logo" class="logo-image" onerror="this.onerror=null; this.outerHTML='<div class=logo-placeholder></div>';"/>
           </div>
           <div>
             <div class="text-xl font-bold bg-gradient-to-r from-cyan-400 to-blue-400 bg-clip-text text-transparent">Driven Minds & Global Solutions</div>
