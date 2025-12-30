@@ -44,9 +44,25 @@
     .particle {
       transition: transform 0.45s cubic-bezier(.22,.9,.32,1);
     }
+    .logo-placeholder {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 50px;
+      width: 50px;
+      background: linear-gradient(135deg, #06b6d4, #3b82f6);
+      border-radius: 8px;
+      font-weight: bold;
+      font-size: 24px;
+      color: white;
+      filter: drop-shadow(0 0 8px rgba(6, 182, 212, 0.4));
+      transition: transform 0.3s ease;
+    }
+    .logo-placeholder:hover {
+      transform: scale(1.05);
+    }
     .logo-image {
       filter: drop-shadow(0 0 8px rgba(6, 182, 212, 0.4));
-      animation: float 3s ease-in-out infinite;
       transition: transform 0.3s ease;
       height: 50px;
       width: auto;
@@ -69,7 +85,7 @@
       <div class="flex items-center justify-between h-20">
         <div class="flex items-center gap-3 group cursor-pointer">
           <div class="flex items-center justify-center bg-gradient-to-br from-cyan-500/20 to-blue-500/20 border border-cyan-500/30 rounded-lg p-2">
-            <img src="./logo.png" alt="DMAGS Logo" class="logo-image" onerror="this.style.display='none'"/>
+            <img src="./logo.png" alt="DMAGS Logo" class="logo-image" onerror="this.parentElement.innerHTML='<div class=\"logo-placeholder\">D</div>'"/>
           </div>
           <div>
             <div class="text-xl font-bold text-gray-200">DMAGS</div>
@@ -180,7 +196,7 @@
           <span>👥</span>
           <span class="text-sm text-pink-400 font-semibold">HR & Recruitment Solutions</span>
         </div>
-        <h2 class="text-5xl md:text-7xl font-black mb-6 bg-gradient-to-r from-pink-400 via-orange-400 to-red-400 bg-clip-text text-transparent">HR & Talent Acquisition</h2>
+        <h2 id="hr-title" class="text-5xl md:text-7xl font-black mb-6 bg-gradient-to-r from-pink-400 via-orange-400 to-red-400 bg-clip-text text-transparent">HR & Talent Acquisition</h2>
         <div class="w-32 h-1.5 bg-gradient-to-r from-pink-400 to-orange-400 mx-auto rounded-full mb-8"></div>
         <p class="text-gray-300 text-xl max-w-3xl mx-auto font-light">Comprehensive HR consulting and recruitment services to build your dream team</p>
       </div>
@@ -315,7 +331,7 @@
           <div class="text-6xl mb-6">✨</div>
           <h3 class="text-4xl font-black mb-6">Got a Project in Mind?</h3>
           <p class="text-gray-300 text-xl mb-8 max-w-2xl mx-auto leading-relaxed">Let's embark on a journey to transform your idea into a compelling digital presence</p>
-          <button data-scroll="contact" class="relative px-10 py-5 bg-gradient-to-r from-pink-500 to-orange-500 rounded-xl font-bold text-lg transform hover:scale-105">
+          <button id="consultation-btn" class="relative px-10 py-5 bg-gradient-to-r from-pink-500 to-orange-500 rounded-xl font-bold text-lg transform hover:scale-105">
             <span>Book Free Consultation ➡️</span>
           </button>
         </div>
@@ -398,7 +414,8 @@
           <div class="relative p-8 bg-gradient-to-br from-violet-500/10 to-purple-500/10 backdrop-blur-sm rounded-2xl border border-violet-500/20">
             <div class="text-4xl mb-4">✨</div>
             <h4 class="text-2xl font-bold mb-3">What's Next?</h4>
-            <p class="text-gray-300 leading-relaxed text-lg">One of our Account Managers will contact you shortly to discuss your requirements.</p>
+            <p class="text-gray-300 leading-relaxed text-lg">✅ Your website is now LIVE on Vercel at <strong>dmags.in</strong>!</p>
+            <p class="text-gray-300 leading-relaxed text-lg mt-2">Visit your site and celebrate! 🎉</p>
           </div>
         </div>
 
@@ -423,7 +440,7 @@
       <div class="flex flex-col md:flex-row justify-between items-center space-y-6 md:space-y-0">
         <div class="flex items-center space-x-3 group cursor-pointer">
           <div class="flex items-center justify-center bg-gradient-to-br from-cyan-500/20 to-blue-500/20 border border-cyan-500/30 rounded-lg p-2">
-            <img src="./logo.png" alt="DMAGS Logo" class="logo-image" onerror="this.style.display='none'"/>
+            <img src="./logo.png" alt="DMAGS Logo" class="logo-image" onerror="this.parentElement.innerHTML='<div class=\"logo-placeholder\">D</div>'"/>
           </div>
           <div>
             <div class="text-xl font-bold bg-gradient-to-r from-cyan-400 to-blue-400 bg-clip-text text-transparent">Driven Minds & Global Solutions</div>
@@ -451,8 +468,11 @@
       const navItems = ['Home','About','HR Services','Why Choose','Solutions','Technologies','Contact'];
       const navLinksEl = document.getElementById('nav-links');
       
-      navItems.forEach(item => {
-        const id = item.toLowerCase().replace(/\s+/g, '-');
+      navItems.forEach((item, idx) => {
+        let id = item.toLowerCase().replace(/\s+/g, '-');
+        if (item === 'HR Services') id = 'hr-recruitment';
+        if (item === 'Why Choose') id = 'why-choose';
+        if (item === 'Technologies') id = 'technologies';
         const btn = document.createElement('button');
         btn.textContent = item;
         btn.className = 'px-5 py-2 rounded-lg transition-all duration-300 font-medium hover:bg-slate-800/50 text-gray-300 hover:text-white';
@@ -464,7 +484,10 @@
 
       const mobileMenu = document.getElementById('mobile-menu');
       navItems.forEach(item => {
-        const id = item.toLowerCase().replace(/\s+/g, '-');
+        let id = item.toLowerCase().replace(/\s+/g, '-');
+        if (item === 'HR Services') id = 'hr-recruitment';
+        if (item === 'Why Choose') id = 'why-choose';
+        if (item === 'Technologies') id = 'technologies';
         const btn = document.createElement('button');
         btn.textContent = item;
         btn.className = 'block w-full text-left px-6 py-4 hover:bg-cyan-500/10 transition-all border-l-4 border-transparent hover:border-cyan-400';
@@ -525,8 +548,46 @@
       blob2.style.bottom = '10px';
       bg.appendChild(blob2);
 
-      document.getElementById('send-btn').addEventListener('click', () => {
-        alert('Thank you for your inquiry! We will contact you shortly.');
+      document.getElementById('consultation-btn').addEventListener('click', () => {
+        document.getElementById('contact').scrollIntoView({behavior:'smooth'});
+      });
+
+      document.getElementById('send-btn').addEventListener('click', async () => {
+        const name = document.getElementById('input-name').value.trim();
+        const phone = document.getElementById('input-phone').value.trim();
+        const email = document.getElementById('input-email').value.trim();
+        const msg = document.getElementById('input-msg').value.trim();
+
+        if (!name || !phone || !email || !msg) {
+          alert('Please fill in all fields');
+          return;
+        }
+
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!emailRegex.test(email)) {
+          alert('Please enter a valid email address');
+          return;
+        }
+
+        try {
+          const response = await fetch('https://formspree.io/f/mzdboyvn', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ name, phone, email, message: msg })
+          });
+
+          if (response.ok) {
+            alert('Thank you for your inquiry! We will contact you shortly. Check your email for confirmation.');
+            document.getElementById('input-name').value = '';
+            document.getElementById('input-phone').value = '';
+            document.getElementById('input-email').value = '';
+            document.getElementById('input-msg').value = '';
+          } else {
+            alert('Failed to send message. Please try again.');
+          }
+        } catch (error) {
+          alert('Error sending message. Please check your connection.');
+        }
       });
 
       setTimeout(() => {
