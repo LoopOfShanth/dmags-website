@@ -83,16 +83,16 @@
   <nav id="topnav" class="fixed w-full z-50 transition-all duration-500">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="flex items-center justify-between h-20">
-        <div class="flex items-center gap-3 group cursor-pointer">
+        <div class="flex items-center gap-3 group cursor-pointer flex-shrink-0">
           <div class="flex items-center justify-center bg-gradient-to-br from-cyan-500/20 to-blue-500/20 border border-cyan-500/30 rounded-lg p-2">
             <img src="./logo.png" alt="DMAGS Logo" class="logo-image" onerror="this.parentElement.innerHTML='<div class=\"logo-placeholder\">D</div>'"/>
           </div>
-          <div>
+          <div class="hidden sm:block">
             <div class="text-xl font-bold text-gray-200">DMAGS</div>
             <div class="text-xs text-gray-500 font-semibold">DRIVEN MINDS & GLOBAL SOLUTIONS</div>
           </div>
         </div>
-        <div id="nav-links" class="hidden md:flex space-x-1"></div>
+        <div id="nav-links" class="hidden md:flex space-x-1 flex-1 justify-end"></div>
         <button id="mobile-toggle" class="md:hidden p-2 hover:bg-slate-800/50 rounded-lg">☰</button>
       </div>
     </div>
